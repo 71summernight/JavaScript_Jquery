@@ -1,0 +1,51 @@
+package com;
+
+import java.io.IOException;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class NowServlet
+ */
+@WebServlet(
+		description = "서블릿은 클래스입니다.", 
+		urlPatterns = { 
+				"/NowServlet", 
+				"/Now.do", 
+				"/Now.action", 
+				"/Now.star"
+		}, 
+		initParams = { 
+				@WebInitParam(name = "id", value = "bit", description = "id 초기값 설정"), 
+				@WebInitParam(name = "jdbcDriver", value = "oracle.jdbc.OracleDriver", description = "오라클 드라이버  제공")
+		})
+public class NowServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+
+    public NowServlet() {
+        super();
+    }
+
+
+	public void init(ServletConfig config) throws ServletException {
+		//초기화 함수(자동 호출 함수)
+		//호출 시점: NowServlet 클래스 파일에 대한 [최초요청시]
+		
+	}
+
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+}

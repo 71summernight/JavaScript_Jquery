@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="Css/movieCSS.css">
+<title>MOVIE</title>
+</head>
+<body>
+	<div>
+		<div id="top3">
+			<img src="soul.jpg" alt="소울"> <img
+				src="mission.jpg" alt="미션 파서블"> <img
+				src="demon.jpg" alt="커멸의칼날">
+		</div>
+		<div id="top3">
+				<p><b>Top 1</b></p>
+				<p>Top 2</p>
+				<p>Top 3</p>
+		</div>
+	</div>
+	<table id="table">
+		<tr>
+			<th>Rank
+				<hr>
+			</th>
+			<th>movieNm
+				<hr>
+			</th>
+			<th>salesAcc
+				<hr>
+			</th>
+		</tr>
+	</table>
+
+</body>
+<script type="text/javascript" src="Script/moviejs.js"></script>
+</html>

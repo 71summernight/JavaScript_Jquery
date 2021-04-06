@@ -1,0 +1,51 @@
+package com;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+/*
+ *web.xml 설정
+ *<url-pattern>/simple</url-pattern>
+ *
+ * localhost:8090/WebServlet/simple 요청이 오면
+ * 
+ * public class SimpleController 자바 파일 컴파일 실행
+ *
+ * 서블릿(java로 만든 웹서비스 파일)
+ * 서블릿 조건: java파일이 extends HttpServlet 상송>> 웹요청(request)객체, 응답(response)객체 사용
+ * -servlet은 url에서 바로 요청 안돼요>>요청>>mapping>>요청 주소 생성
+ * 
+ * 
+ * 
+ */
+public class SimpleController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public SimpleController() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

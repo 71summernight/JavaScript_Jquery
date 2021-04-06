@@ -1,0 +1,45 @@
+package com;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintStream;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+@WebServlet(
+		description = "서블릿은 클래스 입니다.", 
+		urlPatterns = { "/Nana" }, 
+		initParams = { 
+				@WebInitParam(name = "id", value = "bit", description = "id초기값 설정")
+		})
+public class Nana extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+
+    public Nana() {
+        super();
+    }
+    public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    
+    	PrintWriter out=response.getWriter();
+    	out.println("Hello Servlet");
+    
+    }
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+	
+	
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	}
+
+}

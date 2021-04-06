@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href='movieCSS.css'>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+   
+   $(function() {
+	  
+	   let movieAPI = "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?" 
+	         //
+			 
+	        		 //key=f5eef3421c602c6cb7ea224104795888&targetDt=20120101
+			   
+	        		 //tags=raccoon&tagmode=any&format=json
+	          let data={key:"f5eef3421c602c6cb7ea224104795888",targetDt:$('#targetDt').values()}
+	     
+	          $.getJSON(flickerAPI,data,function(data,textStatus,xhr){
+	              //console.log(data);
+	              //console.log(textStatus);
+	              //console.log(xhr.readyState);
+	              
+	              $('#images').empty();
+	              $.each(data.items, function(index,obj){
+	                $('<img>').attr("src",obj.media.m).appendTo("#images");
+	                //img 태그를 생성하고 src 속성에 이미지 경로 설정 div append
+	              });
+	          });   
+   });
+
+   
+   </script>
+
+<title>MOVIE</title>
+</head>
+<body>
+<div class="wrap">
+      <div class="header">
+         <img src="megabox.png">
+      </div>
+      <div class="title">2021.03.01 영화순위</div>
+   </div>
+
+ <div id="top3">
+      <div class="top2">
+         <a href="https://movie.naver.com/movie/bi/mi/basic.nhn?code=189124" target="_blank"><img src="mission.png" alt="미션 파서블"></a>
+         <p>
+            <b>Top 2</b>
+         </p>
+      </div>
+      <div class="top1">
+         <a href="https://movie.naver.com/movie/bi/mi/basic.nhn?code=184517#" target="_blank"><img src="soul.png" alt="소울"></a>
+         <p>
+            <b>Top 1</b>
+         </p>
+      </div>
+      
+      <div class="top3">
+         <a href="https://movie.naver.com/movie/bi/mi/basic.nhn?code=196051" target="_blank"><img src="rnlauf.png" alt="커멸의칼날"></a>
+         <p>
+            <b>Top 3</b>
+         </p>
+      </div>
+   </div>
+
+
+
+   <div class="main">
+   <div>
+         <input type="text" id="targetDt">
+         <input type="button" id="btn" value="날짜조회">
+   </div>
+      <table id="table">
+         <tr>
+            <th>RANK
+               <hr>
+            </th>
+
+            <th>TITLE
+               <hr>
+            </th>
+
+            <th>TOTAL_MONEY
+               <hr>
+            </th>
+            
+         <th>TOTAL_PEOPLE
+               <hr>
+            </th>
+            
+         </tr>
+      </table>
+   </div>
+</body>
+<script type="text/javascript"  src="moviejs.js"></script>
+</html>
